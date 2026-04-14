@@ -1,0 +1,25 @@
+{
+  "id": "simple-calendar-autoset",
+  "title": "Simple Calendar Autosettings",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "esmodules": [
+    "main.js"
+  ],
+  "flags": {
+    "canUpload": true
+  },
+  "relationships": {
+    "requires": [
+      {
+        "id": "foundryvtt-simple-calendar-reborn",
+        "type": "module",
+        "compatibility": {}
+      }
+    ]
+  },
+  "description": ""
+}
