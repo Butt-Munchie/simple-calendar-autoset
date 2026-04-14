@@ -13,7 +13,7 @@ This module, when enabled, will automagically set the following settings when a 
 The world then reloads for the settings to take effect. If the settings were already applied previously, then the reload is skipped.
 
 # Dependencies
-This module is dependent on [Simple Calendar Reborn](https://github.com/vigoren/foundryvtt-simple-calendar).
+This module is dependent on [Simple Calendar Reborn]([https://github.com/vigoren/foundryvtt-simple-calendar](https://github.com/Fireblight-Studios/foundryvtt-simple-calendar)).
 
 # Supported Version
 Currently it has only been tested on V13, but I plan on updating this when Simple Calendar Reborn updates to V14.
