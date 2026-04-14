@@ -12,6 +12,18 @@
   "flags": {
     "canUpload": true
   },
+  "packs": [
+    {
+      "name": "macros",
+      "label": "Macros",
+      "path": "packs/macros",
+      "type": "Macro",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    }
+  ],
   "relationships": {
     "requires": [
       {
@@ -21,5 +33,11 @@
       }
     ]
   },
-  "description": ""
+  "authors": [
+    {
+      "name": "Butt-Munch",
+      "flags": {}
+    }
+  ],
+  "description": "Autoset client settings for FoundryVTT Simple Calendar Reborn on world load"
 }
