@@ -10,7 +10,7 @@ This module, when enabled, will automagically set the following settings when a 
 - Remeber Compact Position = True
 - Persistent Open = True
 
-The world then reloads for the settings to take effect. If the settings were already applied previously, then the reload is skipped.
+No world reload is required.
 
 # Dependencies
 This module is dependent on [Simple Calendar Reborn](https://github.com/Fireblight-Studios/foundryvtt-simple-calendar).
