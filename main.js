@@ -1,7 +1,8 @@
-Hooks.once("ready", () => {
+Hooks.once("init", () => {
     const prefix = "foundryvtt-simple-calendar-reborn.";
 
-    // Establish what values to be updated as an array.
+    // Ensure storage is correct early/
+    // Declare variables to be set to true
     const settings = {
         "open-on-load": "true",
         "open-compact": "true",
@@ -10,52 +11,23 @@ Hooks.once("ready", () => {
         "persistent-open": "true"
     };
 
-    // Pre-set that needsReload is false.
-    let needsReload = false;
-
-    // Apply settings
+    //Set the variables
     for (const [key, value] of Object.entries(settings)) {
-        const fullKey = prefix + key;
-        const current = localStorage.getItem(fullKey);
-
-        // If values were not already set, set needsReload to true.
-        if (current !== value) {
-            localStorage.setItem(fullKey, value);
-            needsReload = true;
-        }
+        localStorage.setItem(prefix + key, value);
     }
 
-    // Apply compact mode.
-    const applyCompactFix = () => {
-        const app = Object.values(ui.windows).find(w =>
-        w.constructor.name.toLowerCase().includes("calendar")
-        );
+    // Enable the change BEFORE UI exists
+    const original = window.SimpleCalendar?.app?.prototype?.render;
 
-        if (app) {
-            // Force compact mode AFTER init
-            if (app.switchMode && typeof app.switchMode === "function") {
-                app.switchMode("compact");
-            }
-
-            app.options.compactView = true;
-            app.render(true);
+    Hooks.on("renderSimpleCalendarApp", (app, html, data) => {
+        // Force compact mode BEFORE anything is drawn
+        if (app.switchMode) {
+            app.switchMode("compact");
         }
-    };
 
-    // Reload if settings were changed. Skip if they were already applied.
-    if (needsReload) {
-        setTimeout(() => location.reload(), 1000);
-        return;
-    }
-
-    // Wait for calendar to exist, then enforce compact mode.
-    // It won't apply correctly without this, because the calendar needs to
-    // be fully loaded before applying the setting. Once it loads, compact
-    // can be applied and it will take effect.
-    Hooks.once("renderSimpleCalendarApp", () => {
-        setTimeout(applyCompactFix, 200);
+        app.options.compactView = true;
     });
 
-    // Provide an output to the console that settings have been applied.
-    console.log("Simple Calendar boot logic applied");
+    // Export a log message.
+    console.log("Simple Calendar pre-render patch installed");
 });
