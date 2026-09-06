@@ -15,8 +15,5 @@ No world reload is required.
 # Dependencies
 This module is dependent on [Simple Calendar Reborn](https://github.com/Fireblight-Studios/foundryvtt-simple-calendar).
 
-# Supported Version
-Currently it has only been tested on V13, but I plan on updating this when Simple Calendar Reborn updates to V14.
-
 # Macro
-A macro is also included to do the same functionality manually if desired. Sometimes things can be stubborn, but it's a last resort.
+A macro is also included to do the same functionality manually if desired. Sometimes things can be stubborn and get stuck, so this macro is a last resort.
